@@ -1,0 +1,17 @@
+{% extends 'panenka/base.html' %}
+
+{% block content %}
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 mx-auto">
+            <form method = 'POST' action = ''>{% csrf_token %}
+                <div class="form-group">
+                    <h1>Edit post</h1>
+                    <textarea class="form-control" id="post-edit-form" rows="10">{{ form.as_p }}</textarea>
+                </div>
+                <input type = 'submit' value = 'Create post' />
+            </form>
+        </div>
+      </div>
+    </div>
+{% endblock %}
