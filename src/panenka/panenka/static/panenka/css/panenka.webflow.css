@@ -1179,8 +1179,8 @@ p {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  background-image: -webkit-linear-gradient(270deg, #f0f3f8, #f0f3f8);
-  background-image: linear-gradient(180deg, #f0f3f8, #f0f3f8);
+  /*background-image: -webkit-linear-gradient(270deg, #f0f3f8, #f0f3f8);*/
+  /*background-image: linear-gradient(180deg, #f0f3f8, #f0f3f8);*/
   -webkit-filter: blur(0px);
   filter: blur(0px);
 }

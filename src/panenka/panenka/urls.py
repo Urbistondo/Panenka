@@ -16,7 +16,13 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+from .views import (
+    landing
+)
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^user/', include('users.urls', namespace = 'users')),
+    url(r'^$', landing, name='landing'),
+    url(r'^user/', include('users.urls', namespace='users')),
+    url(r'^contests/', include('contests.urls', namespace='contests')),
 ]
