@@ -189,7 +189,6 @@ class OrderedDict(dict):
         link = self.__map[key]
         link_prev = link.prev
         link_next = link.next
-        soft_link = link_next.prev
         link_prev.next = link_next
         link_next.prev = link_prev
         root = self.__root
@@ -197,14 +196,12 @@ class OrderedDict(dict):
             last = root.prev
             link.prev = last
             link.next = root
-            root.prev = soft_link
-            last.next = link
+            last.next = root.prev = link
         else:
             first = root.next
             link.prev = root
             link.next = first
-            first.prev = soft_link
-            root.next = link
+            root.next = first.prev = link
 
     def __sizeof__(self):
         sizeof = _sys.getsizeof
@@ -356,7 +353,7 @@ _field_template = '''\
     {name} = _property(_itemgetter({index:d}), doc='Alias for field number {index:d}')
 '''
 
-def namedtuple(typename, field_names, *, verbose=False, rename=False, module=None):
+def namedtuple(typename, field_names, verbose=False, rename=False):
     """Returns a new subclass of tuple with named fields.
 
     >>> Point = namedtuple('Point', ['x', 'y'])
@@ -396,7 +393,7 @@ def namedtuple(typename, field_names, *, verbose=False, rename=False, module=Non
                 field_names[index] = '_%d' % index
             seen.add(name)
     for name in [typename] + field_names:
-        if type(name) is not str:
+        if type(name) != str:
             raise TypeError('Type names and field names must be strings')
         if not name.isidentifier():
             raise ValueError('Type names and field names must be valid '
@@ -437,15 +434,11 @@ def namedtuple(typename, field_names, *, verbose=False, rename=False, module=Non
     # For pickling to work, the __module__ variable needs to be set to the frame
     # where the named tuple is created.  Bypass this step in environments where
     # sys._getframe is not defined (Jython for example) or sys._getframe is not
-    # defined for arguments greater than 0 (IronPython), or where the user has
-    # specified a particular module.
-    if module is None:
-        try:
-            module = _sys._getframe(1).f_globals.get('__name__', '__main__')
-        except (AttributeError, ValueError):
-            pass
-    if module is not None:
-        result.__module__ = module
+    # defined for arguments greater than 0 (IronPython).
+    try:
+        result.__module__ = _sys._getframe(1).f_globals.get('__name__', '__main__')
+    except (AttributeError, ValueError):
+        pass
 
     return result
 
@@ -849,7 +842,7 @@ class Counter(dict):
 
 
 ########################################################################
-###  ChainMap
+###  ChainMap (helper for configparser and string.Template)
 ########################################################################
 
 class ChainMap(MutableMapping):
@@ -976,7 +969,7 @@ class UserDict(MutableMapping):
             dict = kwargs.pop('dict')
             import warnings
             warnings.warn("Passing 'dict' as keyword argument is deprecated",
-                          DeprecationWarning, stacklevel=2)
+                          PendingDeprecationWarning, stacklevel=2)
         else:
             dict = None
         self.data = {}

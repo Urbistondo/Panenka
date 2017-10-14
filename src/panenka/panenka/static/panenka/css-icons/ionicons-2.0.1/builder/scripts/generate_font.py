@@ -147,7 +147,7 @@ else:
     subprocess.Popen([scriptPath + '/sfnt2woff', fontfile + '.ttf'], stdout=subprocess.PIPE)
   except OSError:
     # If the local version of sfnt2woff fails (i.e., on Linux), try to use the
-    # global version. This allows us to avoid forcing OS X users to compile
+    # panenka version. This allows us to avoid forcing OS X users to compile
     # sfnt2woff from source, simplifying install.
     subprocess.call(['sfnt2woff', fontfile + '.ttf'])
 

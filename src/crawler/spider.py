@@ -8,11 +8,10 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 
-chromepath = "C:/Users/asien/Desktop/Sofascore/node_modules/chromedriver/lib/chromedriver/chromedriver.exe"
+chromepath = "../../selenium/webdriver/chrome/chromedriver.exe"
 
 
 driver = webdriver.Chrome(chromepath)
-driver.maximize_window()
 # navigate to the application home page
 '''
 driver.get("https://www.sofascore.com/es/torneo/futbol/spain/primera-division/8")
@@ -47,6 +46,7 @@ def leer(final_df):
     header= driver.find_element_by_xpath("//table[@class='table table--statistics js-sorter-body sort-by-rating']//thead")
     print(header.text)
     vals= driver.find_elements_by_xpath("//table[@class='table table--statistics js-sorter-body sort-by-rating']//tbody")
+    print("TYPE OF VALS: ", type(vals))
     final_df = pd.DataFrame(vals)
     return final_df
 
@@ -63,10 +63,15 @@ driver.find_element_by_xpath("//li[@class='nav__item hidden-mobile']").click()
 #    estadistica.click()
 #   break
 
+
+
+
+
+
 final_df = pd.DataFrame
 with open('estadisticas.csv', mode='w') as output_file:
     ##SUMARIO
-    final_df=leer(final_df)
+    final_df = leer(final_df)
     secciones= driver.find_elements_by_xpath("//li[@class='nav__item ']//a")
     for seccion in secciones:
         seccion.click()

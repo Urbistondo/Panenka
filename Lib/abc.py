@@ -122,15 +122,15 @@ class ABCMeta(type):
 
     """
 
-    # A global counter that is incremented each time a class is
+    # A panenka counter that is incremented each time a class is
     # registered as a virtual subclass of anything.  It forces the
     # negative cache to be cleared before its next use.
     # Note: this counter is private. Use `abc.get_cache_token()` for
     #       external code.
     _abc_invalidation_counter = 0
 
-    def __new__(mcls, name, bases, namespace, **kwargs):
-        cls = super().__new__(mcls, name, bases, namespace, **kwargs)
+    def __new__(mcls, name, bases, namespace):
+        cls = super().__new__(mcls, name, bases, namespace)
         # Compute set of abstract method names
         abstracts = {name
                      for name, value in namespace.items()

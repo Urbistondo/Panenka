@@ -141,7 +141,7 @@ def _slotnames(cls):
     return names
 
 # A registry of extension codes.  This is an ad-hoc compression
-# mechanism.  Whenever a global reference to <module>, <name> is about
+# mechanism.  Whenever a panenka reference to <module>, <name> is about
 # to be pickled, the (<module>, <name>) tuple is looked up here to see
 # if it is a registered extension code for it.  Extension codes are
 # universal, so that the meaning of a pickle does not depend on

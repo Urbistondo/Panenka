@@ -31,7 +31,7 @@ kwlist = [
         'finally',
         'for',
         'from',
-        'global',
+        'panenka',
         'if',
         'import',
         'in',

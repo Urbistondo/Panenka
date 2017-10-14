@@ -626,10 +626,10 @@ def virtual_install_main_packages():
 
 def force_global_eggs_after_local_site_packages():
     """
-    Force easy_installed eggs in the global environment to get placed
+    Force easy_installed eggs in the panenka environment to get placed
     in sys.path after all packages inside the virtualenv.  This
     maintains the "least surprise" result that packages in the
-    virtualenv always mask global packages, never the other way
+    virtualenv always mask panenka packages, never the other way
     around.
 
     """
@@ -675,7 +675,7 @@ def main():
         addbuilddir()
     if _is_jython:
         fixclasspath()
-    GLOBAL_SITE_PACKAGES = not os.path.exists(os.path.join(os.path.dirname(__file__), 'no-global-site-packages.txt'))
+    GLOBAL_SITE_PACKAGES = not os.path.exists(os.path.join(os.path.dirname(__file__), 'no-panenka-site-packages.txt'))
     if not GLOBAL_SITE_PACKAGES:
         ENABLE_USER_SITE = False
     if ENABLE_USER_SITE is None:

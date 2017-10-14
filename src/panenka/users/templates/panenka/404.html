@@ -3,14 +3,16 @@
 <!--  Last Published: Sat Oct 14 2017 02:19:02 GMT+0000 (UTC)  -->
 <html data-wf-page="58ff8e2df053a25fdaa2b133" data-wf-site="58ff7b9c3eae93580fa19b11">
 <head>
+
   <meta charset="utf-8">
+  {% load static %}
   <title>Not Found</title>
   <meta content="Not Found" property="og:title">
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <meta content="Webflow" name="generator">
-  <link href="css/normalize.css" rel="stylesheet" type="text/css">
-  <link href="css/webflow.css" rel="stylesheet" type="text/css">
-  <link href="css/panenka.webflow.css" rel="stylesheet" type="text/css">
+  <link href="{% static 'users/css/normalize.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'users/css/webflow.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'users/css/panenka.webflow.css' %}" rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js" type="text/javascript"></script>
   <script type="text/javascript">WebFont.load({  google: {    families: ["Roboto:300,regular","Roboto Condensed:regular"]  }});</script>
   <!-- [if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif] -->
@@ -21,14 +23,14 @@
 <body class="body-4">
   <div class="utility-page-wrap">
     <div class="div-block-18">
-      <div class="utility-page-content"><img src="images/amonestation.png" width="150">
+      <div class="utility-page-content"><img src="{% static 'users/images/amonestation.png' %}" width="150">
         <h2>Página no encontrada</h2>
         <div>La página que buscas no existe o ha sido eliminada.<br><br>Panenka se encuentra en construcción. Diculpa las molestias</div>
       </div>
     </div>
   </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
-  <script src="js/webflow.js" type="text/javascript"></script>
-  <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>-->
+  <!--<script src="js/webflow.js" type="text/javascript"></script>-->
+  <!-- [if lte IE 9]><!--<script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script>--><![endif] -->
 </body>
 </html>

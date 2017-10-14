@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Panenka.iml" filepath="$PROJECT_DIR$/.idea/Panenka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/hackupc.iml" filepath="$PROJECT_DIR$/.idea/hackupc.iml" />
     </modules>
   </component>
 </project>
