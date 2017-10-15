@@ -17,9 +17,13 @@ from django.conf.urls import include, url
 from django.contrib.auth import views as auth_views
 
 from .views import (
-    contests_list
+    contests_list,
+    contests_create,
+    contests_show
 )
 
 urlpatterns = [
-    url(r'^list/$', contests_list, name='list'),
+    url(r'^$', contests_list, name='list'),
+    url(r'^create/$', contests_create, name='create'),
+    url(r'^contests(?P<contest_id>[0-9]+)/$', contests_show, name='create'),
 ]

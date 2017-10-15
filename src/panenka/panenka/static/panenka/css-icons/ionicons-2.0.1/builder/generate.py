@@ -167,7 +167,7 @@ def generate_cheatsheet(data):
   print "Generate Cheatsheet"
 
   cheatsheet_file_path = os.path.join(ROOT_PATH, 'cheatsheet.html')
-  template_path = os.path.join(BUILDER_PATH, 'cheatsheet', 'template.html')
+  template_path = os.path.join(BUILDER_PATH, 'cheatsheet', 'templates.html')
   icon_row_path = os.path.join(BUILDER_PATH, 'cheatsheet', 'icon-row.html')
 
   f = open(template_path, 'r')

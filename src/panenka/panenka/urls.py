@@ -25,4 +25,5 @@ urlpatterns = [
     url(r'^$', landing, name='landing'),
     url(r'^user/', include('users.urls', namespace='users')),
     url(r'^contests/', include('contests.urls', namespace='contests')),
+    url(r'^contests/lineup', include('lineup.urls', namespace='lineups')),
 ]

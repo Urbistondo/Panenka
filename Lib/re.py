@@ -229,7 +229,7 @@ def purge():
     _cache_repl.clear()
 
 def template(pattern, flags=0):
-    "Compile a template pattern, returning a pattern object"
+    "Compile a templates pattern, returning a pattern object"
     return _compile(pattern, flags|T)
 
 _alphanum_str = frozenset(
